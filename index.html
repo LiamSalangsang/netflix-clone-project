@@ -11,7 +11,7 @@
 <body>
   <header class="showcase">
     <div class="showcase-top">
-      <a href="./signup.html" class="btn btn-rounded"> Sign In </a> 
+      <a href="/signin" class="btn btn-rounded"> Sign In </a> 
       <img src="img/logo.svg" alt="Netflix Logo">
     </div>
     <div class="showcase-content">
@@ -133,6 +133,8 @@
 </section>
 <section>
   <h1>Frequently Asked Questions</h1>
+  <div id="productList"></div>
+
 
   <div >Ready to watch? Enter your email to create or restart your membership.</div>
   <form id="emailForm" onsubmit="return checkInput()">
@@ -185,6 +187,27 @@
  </div>
 
 </section>
+
+<script>
+  // Fetch product data from the backend
+  fetch('http://localhost:3001/api/questions')
+    .then(response => response.json())
+    .then(products => {
+      const productList = document.getElementById('productList');
+
+      // Render products on the page
+      products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.innerHTML = `
+          <h2>${product.question}</h2>
+          <p>About: ${product.answer}</p>
+          <hr>
+        `;
+        productList.appendChild(productCard);
+      });
+    })
+    .catch(error => console.error('Error fetching product data:', error));
+</script>
 
 </body>
 </html>

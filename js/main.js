@@ -1,3 +1,5 @@
+
+
 function checkInput() {
     var inputField = document.getElementById("emailsubmission");
     var inputValue = inputField.value.trim();
@@ -7,6 +9,8 @@ function checkInput() {
       return false; // Prevent form submission if the input is empty
     }
     return true; // Allow form submission if the input is not empty
+    
+  
   }
   
 
