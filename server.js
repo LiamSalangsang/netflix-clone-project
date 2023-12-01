@@ -17,12 +17,11 @@ var connect = mysql.createPool({
   database: process.env.DB_DATABASE
 });
 
-  function hello(){
-    console.log("will run immediately");
-  }
+  // function hello(){
+  //   console.log("will run immediately");
+  // }
   
-  setImmediate(hello);
-  
+  // setImmediate(hello);
   
   // var insert_R = 'INSERT INTO details(name,description,rating) VALUES(?,?,?)';
   // //establishing connection
@@ -49,7 +48,7 @@ connect.getConnection(function(err, connection){
    connection.query(read_R, function(err, data){
     if(err) throw err;
     else {
-      console.log(JSON.stringify(data, null, 2));
+      // console.log(JSON.stringify(data, null, 2));
       // movies = JSON.stringify(data,null)
       questions = data;
 
@@ -77,7 +76,7 @@ app.get('/api/questions', (req, res) => {
   
       res.sendFile(__dirname + '/signin.html')
   
-      console.log(name,email,password);
+      // console.log(name,email,password);
   })
   
   app.listen(port, () => {
