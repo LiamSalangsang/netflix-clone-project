@@ -40,25 +40,54 @@ var connect = mysql.createPool({
   
   // });	
 
-  var read_R = 'SELECT * FROM FAQ';
-//establishing connection
-connect.getConnection(function(err, connection){
+
+//   var read_R = 'SELECT * FROM FAQ';
+// //establishing connection
+// connect.getConnection(function(err, connection){
     
-  //retrieving a record from details
-   connection.query(read_R, function(err, data){
-    if(err) throw err;
-    else {
-      // console.log(JSON.stringify(data, null, 2));
-      // movies = JSON.stringify(data,null)
-      questions = data;
+//   //retrieving a record from details
+//    connection.query(read_R, function(err, data){
+//     if(err) throw err;
+//     else {
+//       // console.log(JSON.stringify(data, null, 2));
+//       // movies = JSON.stringify(data,null)
+//       questions = data;
 
+//     }
+//   });
+
+// //releasing connection
+//  connection.release();
+
+// });
+
+    questions = [
+    {
+      "id": 1,
+      "question": "What is the capital of France?",
+      "answer": "The capital of France is Paris."
+    },
+    {
+      "id": 2,
+      "question": "How do I reset my password?",
+      "answer": "To reset your password, go to the login page and click on the 'Forgot Password' link. Follow the instructions sent to your email."
+    },
+    {
+      "id": 3,
+      "question": "What payment methods do you accept?",
+      "answer": "We accept credit cards (Visa, Mastercard, American Express), PayPal, and bank transfers."
+    },
+    {
+      "id": 4,
+      "question": "Can I return my order?",
+      "answer": "Yes, you can return your order within 30 days of purchase. Please refer to our returns policy for more details."
+    },
+    {
+      "id": 5,
+      "question": "Do you offer international shipping?",
+      "answer": "Yes, we offer international shipping to many countries. Shipping costs and delivery times may vary depending on the destination."
     }
-  });
-
-//releasing connection
- connection.release();
-
-});
+  ]
 
 app.get('/api/questions', (req, res) => {
     res.json(questions);
