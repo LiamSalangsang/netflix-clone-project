@@ -30,15 +30,15 @@ To run this Netflix clone on your local machine, follow these steps:
 
 2. **Navigate to NetFlix Landing Page Project:**
 
-  ```bash
+   ```bash
   cd netflix-clone-project
 
 4. **Install Dependencies:**
 
-  ```bash
+```bash
   npm install
 
-## Usage
+### Usage
 
 ```bash
   npm start
@@ -47,7 +47,7 @@ Open Your Browser:
 
 Once the application has started, open your web browser and navigate to the specified localhost address (usually http://localhost:3000 or as mentioned in the console). You will be able to view the Netflix clone landing page and interact with its features.
 
-## Contributing
+### Contributing
 
 Contributions are welcome! If you'd like to enhance this project or have suggestions, feel free to open an issue or submit a pull request.
 
