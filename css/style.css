@@ -469,3 +469,48 @@ section {
     
 
 }
+  
+  .product-card.active .accordion-content {
+    display: flex;
+   text-align: left;
+   padding-left:1.5rem;
+   padding-top:1.5rem;
+   padding-bottom:1.5rem;
+   padding-right:1rem;
+   font-size:1.48crem;
+
+    
+  }
+  
+  .accordion-content {
+    display: none;
+    background-color: #2D2D2D;
+    color: white;
+    width:70rem;
+    flex-wrap: wrap;
+    
+  }
+  .accordion-trigger{
+    background-color: #2D2D2D;
+   width:70rem;
+   color: #fff;
+   font-size:1.5rem;
+   height:5.2rem;
+   display:flex;
+   justify-content: center;
+   padding:1.5rem;
+   align-items:flex-start;
+   flex-direction: column;
+   flex-wrap: wrap;
+    cursor: pointer;
+  }
+
+.product-card{
+    margin:8.5px;
+}
+
+.accordion-trigger:hover{
+    background-color: #454242;
+
+}
+  

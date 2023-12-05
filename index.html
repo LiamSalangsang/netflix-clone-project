@@ -22,7 +22,7 @@
       </div>
 
       <form id="emailForm" onsubmit="return checkInput()">
-        <input 
+        <input  style = 'padding-left:1rem; font-size:16px;'
         type="email" id="emailsubmission" placeholder="Email address">
       
         <div class="submit-button">
@@ -131,26 +131,28 @@
 
 
 </section>
-<section>
-  <h1>Frequently Asked Questions</h1>
+<section style = 'display:flex; flex-direction:column; justify-content:center; align-items: center;' >
+  <h1 style ='font-size: 48px; color:#fff; font-weight:900; margin-top: 3rem; margin-bottom:1rem;' >Frequently Asked Questions</h1>
   <div id="productList"></div>
 
-
-  <div >Ready to watch? Enter your email to create or restart your membership.</div>
-  <form id="emailForm" onsubmit="return checkInput()">
-    <input 
-    type="email" id="emailsubmission" placeholder="Email address">
+<div style = 'margin:1.5rem; margin-bottom:4rem; display: flex;flex-direction: column;justify-content: center;align-items: center;'>
   
-    <div class="submit-button">
-      <input class="btn btn-xl" type="submit" value="Get Started">
-
-      <i class="fa fa-chevron-right"></i>
-      
-  </div>
+    <p style = 'font-size:1.3rem;color:#fff; margin:1rem;'>Ready to watch? Enter your email to create or restart your membership.</p>
+    <form id="emailForm" onsubmit="return checkInput()">
+      <input style = 'padding-left:1rem; font-size:16px;background-color: #0F0F0F;border-color:#5F5F5F;;'
+      type="email" id="emailsubmission" placeholder="Email address">
   
-
-  </form>
-   
+      <div class="submit-button">
+        <input class="btn btn-xl" type="submit" value="Get Started">
+  
+        <i class="fa fa-chevron-right"></i>
+  
+    </div>
+  
+  
+    </form>
+  
+</div>
 </section>
 <section>
  <div class = 'all-links'>
@@ -191,22 +193,41 @@
 <script>
   // Fetch product data from the backend
   fetch('http://localhost:3001/api/questions')
-    .then(response => response.json())
-    .then(products => {
-      const productList = document.getElementById('productList');
+  .then(response => response.json())
+  .then(questions => {
+    const QuestionList = document.getElementById('productList');
 
-      // Render products on the page
-      products.forEach(product => {
-        const productCard = document.createElement('div');
-        productCard.innerHTML = `
-          <h2>${product.question}</h2>
-          <p>About: ${product.answer}</p>
-          <hr>
-        `;
-        productList.appendChild(productCard);
+    function toggleAccordion(element) {
+      element.classList.toggle('active');
+    }
+
+    function closeOtherAccordions(clickedElement) {
+      const allProductCards = document.querySelectorAll('.product-card');
+      allProductCards.forEach(card => {
+        if (card !== clickedElement && card.classList.contains('active')) {
+          card.classList.remove('active');
+        }
       });
-    })
-    .catch(error => console.error('Error fetching product data:', error));
+    }
+
+    questions.forEach(q => {
+      const productCard = document.createElement('div');
+      productCard.classList.add('product-card');
+      productCard.innerHTML = `
+        <p class="accordion-trigger">${q.question}</p>
+        <p class="accordion-content">${q.answer}</p>
+      `;
+
+      productCard.addEventListener('click', function () {
+        closeOtherAccordions(productCard);
+        toggleAccordion(productCard);
+      });
+
+      QuestionList.appendChild(productCard);
+    });
+  })
+  .catch(error => console.error('Error fetching product data:', error));
+
 </script>
 
 </body>
