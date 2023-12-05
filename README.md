@@ -45,7 +45,7 @@ To run this Netflix clone on your local machine, follow these steps:
 
 ### Usage
 
-Once the application has started, open your web browser and navigate to the specified localhost address (usually http://localhost:3000 or as mentioned in the console). You will be able to view the Netflix clone landing page and interact with its features.
+Once the application has started, open your web browser and navigate to the specified localhost address (usually http://localhost:3001 or as mentioned in the console). You will be able to view the Netflix clone landing page and interact with its features.
 
 ### Contributing
 
