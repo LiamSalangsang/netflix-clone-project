@@ -473,11 +473,12 @@ section {
   .product-card.active .accordion-content {
     display: flex;
    text-align: left;
+   margin-top: -0.2rem;
    padding-left:1.5rem;
    padding-top:1.5rem;
    padding-bottom:1.5rem;
    padding-right:1rem;
-   font-size:1.48crem;
+   font-size:1.48rem;
 
     
   }
