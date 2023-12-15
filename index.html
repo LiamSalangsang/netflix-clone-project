@@ -155,8 +155,6 @@
 </div>
 </section>
 <section>
-  <img  style = "width: 45rem; height:45rem;" src="./img/login.svg" alt = "login svg">
-
 
  <div class = 'all-links'>
    
@@ -202,6 +200,10 @@
 
     function toggleAccordion(element) {
       element.classList.toggle('active');
+      const symbolRotate = element.querySelector('.symbol-rotate');
+      if (symbolRotate) {
+        symbolRotate.classList.toggle('rotate-45deg');
+      }
     }
 
     function closeOtherAccordions(clickedElement) {
@@ -209,6 +211,11 @@
       allProductCards.forEach(card => {
         if (card !== clickedElement && card.classList.contains('active')) {
           card.classList.remove('active');
+          const symbolRotate = card.querySelector('.symbol-rotate');
+          if (symbolRotate) {
+            symbolRotate.classList.remove('rotate-45deg');
+          }
+
         }
       });
     }
@@ -217,7 +224,7 @@
       const productCard = document.createElement('div');
       productCard.classList.add('product-card');
       productCard.innerHTML = `
-        <p class="accordion-trigger">${q.question}</p>
+        <p class="accordion-trigger">${q.question}<svg class="symbol-rotate" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" data-name="Plus" alt=""><path fill-rule="evenodd" clip-rule="evenodd" d="M17 17V3H19V17H33V19H19V33H17V19H3V17H17Z" fill="currentColor"></path></svg></p>
         <p class="accordion-content">${q.answer}</p>
       `;
 

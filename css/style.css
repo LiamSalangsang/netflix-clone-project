@@ -498,10 +498,10 @@ section {
    font-size:1.5rem;
    height:5.2rem;
    display:flex;
-   justify-content: center;
-   padding:1.5rem;
-   align-items:flex-start;
-   flex-direction: column;
+   justify-content: space-between;
+   padding-left:1.5rem;
+   padding-right:1.5rem;
+   align-items: center;
    flex-wrap: wrap;
     cursor: pointer;
   }
@@ -514,4 +514,7 @@ section {
     background-color: #454242;
 
 }
-  
+
+.rotate-45deg {
+    transform: rotate(45deg);
+  }
